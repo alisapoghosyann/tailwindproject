@@ -8,12 +8,12 @@ export default function index() {
     <main>
       <div className="lg:min-h-[950px] h-full background-gradient lg:px-36 md:px-20 px-10 pt-11 md:pt-[50px] pb-14 md:pb-[104px]">
         <div className="flex justify-center items-center h-12 md:h-[120px]">
-          <div className="relative w-96 h-full flex justify-center items-center">
-            <div className="absolute left-[86px] md:left-[40px] -top-[60px] lg:top-[-50px] lg:left-[-13px]">
-              <div className="relative w-[150px] h-[130px] md:w-[200px] md:h-[200px]">
-                <Image src={ellipse} alt="ellipse" fill={true} />
-              </div>
-            </div>
+          <div className="relative w-96 h-full flex justify-start items-center">
+            <Image
+              src={ellipse}
+              alt="ellipse"
+              className="absolute top-[-61px] left-[-61px] md:left-[-73px] md:-top-[60px] lg:top-[-50px] lg:left-[-82px] w-[150px] h-[130px] md:w-[200px] md:h-[200px]"
+            />
             <h2 className="text-[22px] md:text-4xl lg:text-7xl text-white font-bold h-20 absolute z-1">
               Team
             </h2>

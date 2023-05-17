@@ -25,46 +25,50 @@ export default function OurTeam() {
       <h2 className="title-gradient mx-auto text-[22px] lg:mx-0 md:text-[40px] lg:text-[80px] font-bold pb-5 lg:pb-20 w-max">
         Our Partners
       </h2>
-      <div>
-        <p className="text-xs leading-5 md:text-base lg::text-2xl text-dark-grey text-center font-light">
-          By engaging ninety3, you will benefit from the seasoned experience of
-          our professional senior experts who have worked with and for some of
-          the biggest companies across the globe.
-        </p>
-      </div>
-      <div className="flex gap-36 mt-9 md:mt-[50px] lg:mt-32 overflow-auto">
-        <Swiper
-          onSlideChange={() => {}}
-          onSwiper={() => {}}
-          loop
-          className="w-full mx-auto"
-          breakpoints={{
-            320: {
-              slidesPerView: 2,
-            },
-            768: {
-              slidesPerView: 3,
-            },
-            1024: {
-              slidesPerView: 5,
-            },
-          }}
-          spaceBetween={50}
-        >
-          {partenrs.map((item, idx) => (
-            <SwiperSlide key={idx} className="w-full">
-              <div key={idx} className="h-36 min-w-[132px] md:min-w-[185px]">
-                <Image
-                  src={item}
-                  alt="img"
-                  width={130}
-                  height={250}
-                  className="max-h-[73px] md:max-h-none"
-                />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      <div className="w-full h-[65%] flex flex-col justify-between">
+        <div>
+          <p className="text-xs md:text-xl leading-4 md:leading-8 lg:leading-[67px] lg:text-[32px] text-center font-poppins m-auto lg:max- text-dark-grey font-light">
+            By engaging ninety3, you will benefit from the seasoned experience
+            of our professional senior experts who have worked with and for some
+            of the biggest companies across the globe.
+          </p>
+        </div>
+        <div className="flex gap-36 mt-9 md:mt-[50px] lg:mt-6 overflow-auto">
+          <Swiper
+            onSlideChange={() => {}}
+            onSwiper={() => {}}
+            loop
+            className="w-full mx-auto"
+            breakpoints={{
+              320: {
+                slidesPerView: 2,
+              },
+              768: {
+                slidesPerView: 3,
+              },
+              1024: {
+                slidesPerView: 5,
+              },
+            }}
+            autoplay
+            spaceBetween={50}
+          >
+            {partenrs.map((item, idx) => (
+              <SwiperSlide key={idx} className="w-full">
+                <div key={idx} className="h-36 min-w-[132px] md:min-w-[185px]">
+                  <Image
+                    priority={true}
+                    src={item}
+                    alt="img"
+                    width={130}
+                    height={250}
+                    className="max-h-[73px] object-contain h-full"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
     </main>
   );

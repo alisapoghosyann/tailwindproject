@@ -7,24 +7,25 @@ export default function ServicesGeneral() {
     <main>
       <div className="lg:min-h-[950px] h-full bg-gradient-image bg-no-repeat bg-full lg:px-36 md:px-20 px-10 pt-11 md:pt-[50px] pb-16">
         <div className="flex justify-center items-center h-12 md:h-[120px]">
-          <div className="relative w-96 h-full flex justify-center items-center">
+          <div className="relative w-96 h-full flex justify-start items-center">
             <Image
+              priority={true}
               src={ellipse}
               width={200}
               height={200}
               alt="ellipse"
-              className="absolute left-[40px] -top-[60px] lg:top-[-50px] lg:left-[-13px] w-[150px] h-[130px] md:w-[200px] md:h-[200px]"
+              className="absolute top-[-61px] left-[-61px] md:left-[-73px] md:-top-[60px] lg:top-[-50px] lg:left-[-82px] w-[150px] h-[130px] md:w-[200px] md:h-[200px]"
             />
             <h2 className="text-[22px] md:text-4xl lg:text-7xl text-white font-bold h-20 absolute z-1">
               Services
             </h2>
           </div>
         </div>
-        <div className="text-xs md:text-xl leading-4 font-bold md:leading-8 lg:leading-[67px] lg:text-[45px] text-center max-w-[455px] font-poppins title-gradient w-max m-auto lg:max-w-[1172px] py-4 md:pt-12 md:pb-[59px] lg:py-11">
+        <h2 className="title-gradient text-[22px] lg:mx-0 md:text-[40px] lg:text-[80px] font-bold pb-5 lg:pb-20 w-max">
           Digital
-        </div>
-        <div className="flex justify-center">
-          <p className="text-xs leading-5 md:text-base lg::text-2xl text-white text-center font-light lg:max-w-3xl">
+        </h2>
+        <div className="flex flex-col gap-5 lg:gap-16 items-center md:items-center justify-between">
+          <p className="text-xs leading-5 lg:pl-20 xl:pl-32 md:text-base lg:text-2xl text-white font-light lg:text-left lg:pr-24">
             Our digital product studio combines leading technology and
             cutting-edge design to create products that are stylish, powerful
             and functional. We believe great products that work and solve
@@ -32,14 +33,15 @@ export default function ServicesGeneral() {
             and success.
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 pt-20 mx-auto justify-center gap-x-5 gap-y-14">
+        <div className="grid grid-cols-2 sm:flex flex-wrap pt-20 mx-auto justify-center gap-x-5 gap-y-14">
           {digital.map((elem, index) => {
             return (
               <div
                 key={index}
-                className="flex-col gap-3 flex items-center justify-center"
+                className="flex-col sm:flex-none sm:w-[calc(30%-40px)] gap-3 flex items-center justify-center"
               >
                 <Image
+                  priority={true}
                   alt={elem.title}
                   src={elem.img}
                   className="max-w-[70px] max-h-[70px]"

@@ -33,7 +33,6 @@ export default function Nav({ scrollDirection }) {
         document.body.style.overflow = "auto";
       }
     };
-    
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -54,69 +53,9 @@ export default function Nav({ scrollDirection }) {
                     ref={ref}
                     className="flex items-center justify-between w-full"
                   >
-                    <Menu as="div" className="md:relative">
-                      <div>
-                        <Menu.Button
-                          onClick={handleDisclosureChange}
-                          className="flex max-w-xs items-center rounded-full text-sm text-white focus:outline-none focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                        >
-                          <span className="sr-only">Open user menu</span>
-                          <Image
-                            className="h-5 w-5 md:h-8 md:w-8 md:min-h-[32px] md:min-w-[32px]"
-                            src={user.imageUrl}
-                            alt=""
-                            width={20}
-                            height={20}
-                          />
-                        </Menu.Button>
-                      </div>
-                      <Transition
-                        as={Fragment}
-                        enter="transition ease-out duration-100"
-                        enterFrom="transform opacity-0 scale-95"
-                        enterTo="transform opacity-100 scale-100"
-                        leave="transition ease-in duration-75"
-                        leaveFrom="transform opacity-100 scale-100"
-                        leaveTo="transform opacity-0 scale-95"
-                      >
-                        <Menu.Items className="absolute flex flex-col h-max md:gap-6 left-0 border-t-[0.5px] md:border-t-0 border-whitePurple md:max-h-auto w-full top-[43px] md:top-60 z-10 mt-2 md:w-48 origin-top-right md:rounded-md md:py-1 bg-black ring-1 ring-black ring-opacity-5 focus:outline-none">
-                          {dromdown.map((item) => (
-                            <Menu.Item key={item.name}>
-                              {({ active }) => (
-                                <a
-                                  href={item.href}
-                                  className={classNames(
-                                    active ? "bg-gray-900" : "",
-                                    "block px-4 py-2 text-base text-center md:text-left md:text-[26px] text-white"
-                                  )}
-                                >
-                                  {item.name}
-                                </a>
-                              )}
-                            </Menu.Item>
-                          ))}
-                          <div className="flex flex-col md:gap-6 lg:hidden">
-                            {navigation.map((item) => (
-                              <Menu.Item key={item.name}>
-                                {({ active }) => (
-                                  <a
-                                    href={item.href}
-                                    className={classNames(
-                                      active ? "bg-gray-100" : "",
-                                      "block px-4 py-2 text-base text-center md:text-left md:text-[26px] text-white"
-                                    )}
-                                  >
-                                    {item.name}
-                                  </a>
-                                )}
-                              </Menu.Item>
-                            ))}
-                          </div>
-                        </Menu.Items>
-                      </Transition>
-                    </Menu>
-                    <Link href={"/"} className="flex-shrink-0 ml-40">
+                    <Link href={"/"} className="flex-shrink-0">
                       <Image
+                        priority={true}
                         src={ninetyLogo}
                         width={142}
                         height={54}
@@ -124,8 +63,8 @@ export default function Nav({ scrollDirection }) {
                         className="w-[78px] sm:w-[100px] md:w-[142px]"
                       />
                     </Link>
-                    <div className="hidden lg:block">
-                      <div className="ml-10 flex items-baseline space-x-16">
+                    <div>
+                      <div className="ml-10 flex items-center space-x-16">
                         {navigation.map((item) => (
                           <a
                             key={item.name}
@@ -134,13 +73,75 @@ export default function Nav({ scrollDirection }) {
                               item.current
                                 ? "bg-gray-900 text-white"
                                 : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                              "px-3 py-2 rounded-md text-sm font-medium"
+                              "px-3 py-2 rounded-md text-sm font-medium hidden lg:block"
                             )}
                             aria-current={item.current ? "page" : undefined}
                           >
                             {item.name}
                           </a>
                         ))}
+                        <Menu as="div" className="md:relative">
+                          <div>
+                            <Menu.Button
+                              onClick={handleDisclosureChange}
+                              className="flex max-w-xs items-center rounded-full text-sm text-white focus:outline-none focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                            >
+                              <span className="sr-only">Open user menu</span>
+                              <Image
+                                priority={true}
+                                className="h-5 w-5 md:h-8 md:w-8 md:min-h-[32px] md:min-w-[32px]"
+                                src={user.imageUrl}
+                                alt=""
+                                width={20}
+                                height={20}
+                              />
+                            </Menu.Button>
+                          </div>
+                          <Transition
+                            as={Fragment}
+                            enter="transition ease-out duration-100"
+                            enterFrom="transform opacity-0 scale-95"
+                            enterTo="transform opacity-100 scale-100"
+                            leave="transition ease-in duration-75"
+                            leaveFrom="transform opacity-100 scale-100"
+                            leaveTo="transform opacity-0 scale-95"
+                          >
+                            <Menu.Items className="absolute flex flex-col h-max md:gap-6 right-1 border-t-[0.5px] md:border-t-0 border-whitePurple md:max-h-auto w-full top-[43px] md:top-60 z-10 mt-2 md:w-48 origin-top-right md:rounded-md md:py-1 bg-black ring-1 ring-black ring-opacity-5 focus:outline-none">
+                              {dromdown.map((item) => (
+                                <Menu.Item key={item.name}>
+                                  {({ active }) => (
+                                    <a
+                                      href={item.href}
+                                      className={classNames(
+                                        active ? "bg-gray-900" : "",
+                                        "block px-4 py-2 text-base text-center md:text-left md:text-[26px] text-white"
+                                      )}
+                                    >
+                                      {item.name}
+                                    </a>
+                                  )}
+                                </Menu.Item>
+                              ))}
+                              <div className="flex flex-col md:gap-6 lg:hidden">
+                                {navigation.map((item) => (
+                                  <Menu.Item key={item.name}>
+                                    {({ active }) => (
+                                      <a
+                                        href={item.href}
+                                        className={classNames(
+                                          active ? "bg-gray-100" : "",
+                                          "block px-4 py-2 text-base text-center md:text-left md:text-[26px] text-white"
+                                        )}
+                                      >
+                                        {item.name}
+                                      </a>
+                                    )}
+                                  </Menu.Item>
+                                ))}
+                              </div>
+                            </Menu.Items>
+                          </Transition>
+                        </Menu>
                       </div>
                     </div>
                   </div>
@@ -169,6 +170,7 @@ export default function Nav({ scrollDirection }) {
                   <div className="flex items-center px-5">
                     <div className="flex-shrink-0">
                       <Image
+                        priority={true}
                         className="h-10 w-10 rounded-full"
                         src={user.imageUrl}
                         alt=""

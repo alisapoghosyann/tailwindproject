@@ -4,15 +4,16 @@ import Image from "next/image";
 
 const index = () => {
   return (
-    <main className="min-h-[407px] md:min-h-[694px] lg:min-h-[950px] h-full lg:px-36 md:px-20 px-10 pt-[34px] md:pt-[50px] lg:pt-28 bg-[#f5f5f5] pb-20">
+    <main className="min-h-[407px] lg:min-h-[calc(100vh-112px)] h-full lg:px-36 md:px-20 px-10 pt-[34px] md:pt-[50px] lg:pt-28 bg-[#f5f5f5] pb-20">
       <div className="flex w-full justify-center xl:justify-between sm:gap-12 flex-wrap xl:flex-nowrap">
-        <div className="flex flex-col sm:flex-row xl:flex-col w-[70%] justify-start sm:gap-20 xl:justify-center items-start xl:gap-2">
+        <div className="flex flex-col sm:flex-row xl:flex-col w-[70%] justify-start sm:gap-20 xl:justify-center items-center sm:items-start xl:gap-2">
           <Image
+            priority={true}
             src={Person}
             width={"90%"}
             height={"90%"}
             alt="founder"
-            className="max-w-[36%] object-cover lg:max-w-[376px] lg:max-h-[515px]"
+            className="sm:max-w-[36%] object-cover lg:max-w-[376px] lg:max-h-[515px]"
           />
           <div>
             <p className="text-xs sm:text-2xl leading-4 md:leading-8 lg:leading-[67px] lg:text-4xl text-center max-w-[455px] font-bold font-poppins title-gradient m-auto lg:max-w-[1023px]">

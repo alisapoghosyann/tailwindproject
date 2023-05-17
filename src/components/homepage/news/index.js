@@ -1,7 +1,6 @@
 import Image from "next/image";
 import ellipse from "../../../assets/ellipse.png";
 import { news } from "@/utils/constants";
-import Link from "next/link";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -10,14 +9,15 @@ export default function News() {
   return (
     <main>
       <div className="lg:h-[1174px] background-gradient lg:px-36 md:px-20 px-10 pt-11 md:pt-[50px] pb-14 md:pb-[104px]">
-        <div className="flex justify-center items-center h-12 md:h-[120px]">
-          <div className="relative w-96 h-full flex justify-center items-center">
+        <div className="flex justify-start items-center h-12 md:h-[120px]">
+          <div className="relative w-96 h-full flex justify-start items-center">
             <Image
+              priority={true}
               src={ellipse}
               width={200}
               height={200}
               alt="ellipse"
-              className="absolute left-[40px] -top-[60px] lg:top-[-50px] lg:left-[-13px] w-[150px] h-[130px] md:w-[200px] md:h-[200px]"
+              className="absolute top-[-61px] left-[-61px] md:left-[-73px] md:-top-[60px] lg:top-[-50px] lg:left-[-82px] w-[150px] h-[130px] md:w-[200px] md:h-[200px]"
             />
             <h2 className="text-[22px] md:text-4xl lg:text-7xl text-white font-bold h-20 absolute z-1">
               News
@@ -44,9 +44,10 @@ export default function News() {
             return (
               <SwiperSlide
                 key={index}
-                className="max-w-[205px] md:max-w-[350px] lg:max-w-[482px] w-full flex flex-col border-2 bg_gradient bg-grey-100 hover:bg-rainbowGradient cursor-pointer"
+                className="max-w-[205px] md:max-w-[310px] lg:max-w-[350px] 2xl:max-w-[400px] w-full flex flex-col border-2 bg_gradient bg-grey-100 hover:bg-rainbowGradient cursor-pointer"
               >
                 <Image
+                  priority={true}
                   src={item.img}
                   alt="news image"
                   className="w-full cursor-pointer max-h-[153px] lg:max-h-none"
@@ -59,12 +60,13 @@ export default function News() {
                     {item.description}
                   </p>
                   <div className="flex items-center pt-[14px] lg:pt-[28px]">
-                    <Link
-                      href="/"
+                    <a
+                      href={item.link}
+                      target="_blank"
                       className="font-light  lg:font-medium text-xs lg:text-sm text-white  border-b-[1px] pb-1"
                     >
                       Read more
-                    </Link>
+                    </a>
                     <ChevronRightIcon
                       className="w-5 h-5 stroke-white"
                       aria-hidden="true"

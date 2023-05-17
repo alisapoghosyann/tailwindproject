@@ -33,7 +33,6 @@ export default function Nav({ scrollDirection }) {
         document.body.style.overflow = "auto";
       }
     };
-
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
